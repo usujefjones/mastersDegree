@@ -1,5 +1,6 @@
 import React from 'react';
 import logo from './logo.svg';
+import antDot from './app/assets/antDot.png';
 import { Counter } from './features/counter/Counter';
 import './App.css';
 
@@ -7,6 +8,16 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+        <div style={{display: 'flex', flexDirection: 'row'}}>
+          <img src={antDot} alt="ant trail" />
+          <img src={antDot} alt="ant trail" style={{opacity: '0.3', marginLeft: '-1px'}}/>
+          <img src={antDot} alt="ant trail" style={{opacity: '0.3', marginLeft: '-1px'}} />
+          <img src={antDot} alt="ant trail" style={{opacity: '0.3', marginLeft: '-1px'}} />
+          <img src={antDot} alt="ant trail" style={{opacity: '0.3', marginLeft: '-1px'}} />
+          <img src={antDot} alt="ant trail" style={{opacity: '0.3', marginLeft: '-1px'}} />
+          <img src={antDot} alt="ant trail" style={{opacity: '0.3', marginLeft: '-1px'}} />
+          <img src={antDot} alt="ant trail" style={{opacity: '0.3', marginLeft: '-1px'}} />
+        </div>
         <img src={logo} className="App-logo" alt="logo" />
         <Counter />
         <p>
