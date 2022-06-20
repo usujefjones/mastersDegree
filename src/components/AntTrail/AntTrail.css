@@ -1,0 +1,25 @@
+
+.statusText {
+	font-size: 14px;
+	/*font-family: Arial;*/
+	margin-left: 10px;
+	font-weight: bold;
+	position: relative;
+	top: -2px;
+}
+
+.done {
+	opacity: 1;
+	margin-left: -1px;
+}
+
+.pending {
+	opacity: 0.3;
+	margin-left: -1px;
+}
+
+.row {
+	display: flex;
+	flex-direction: row;
+}
+

@@ -1,67 +1,113 @@
-import React from 'react';
-import logo from './logo.svg';
-import antDot from './app/assets/antDot.png';
-import { Counter } from './features/counter/Counter';
+import React, { useEffect, useState } from 'react';
+import AntTrail from './components/AntTrail';
+import Question from './components/Question';
 import './App.css';
+import * as data from './data/questions.js';
 
 function App() {
+  const [currentQuestion, setCurrentQuestion] = useState(1);
+  const [dotColors, setDotColors] = useState([]);
+  const [attempts, setAttempts] = useState([]);
+  const [attemptFinished, setAttemptFinished] = useState(true);
+
+  const setNewAttempt = () => {
+    let newAnswers = [];
+    data.questions && data.questions.length> 0 && data.questions.forEach((m, i) => {
+        newAnswers.push({
+          questionId: m.questionId,
+          userAnswer: '',
+          isCorrect: null
+        })
+      }
+    )
+    let newAttempts = Object.assign([], attempts);
+    newAttempts[newAttempts.length] = newAnswers;
+    setAttempts(newAttempts);
+    setAttemptFinished(false);
+    getDotColors(newAttempts, currentQuestion);
+    setCurrentQuestion(1);
+  }
+
+  const sendToQuestion = () => {}
+
+  const moveQuestion = (move) => {
+    if (move === 'prev') {
+      setCurrentQuestion(currentQuestion-1);
+      if (currentQuestion <= 1) {
+        setCurrentQuestion(1);
+        getDotColors(attempts, 1);
+      } else {
+        getDotColors(attempts, currentQuestion - 1);
+      }
+    } else if (move === 'next') {
+      setCurrentQuestion(currentQuestion+1);
+      if (currentQuestion >= data.questions.length) {
+        setCurrentQuestion(data.questions.length);
+        getDotColors(attempts, data.questions.length);
+      } else {
+        getDotColors(attempts, currentQuestion + 1);
+      }
+    }
+  }
+
+  const onAnswer = (questionId, answer) => {}
+
+  const getDotColors = (paramAttempts, paramCurrentQuestion) => {
+    //1. set the currentQuestion to black
+    //2. loop through the answer length.
+    //    a. If the dot is answered, then blue
+    //    b. If the dot is unanswered and below the greatest question answered, it is orange.
+    //       otherwise it is blank
+    let currentAttempt = paramAttempts.length-1;
+    let answers = paramAttempts[currentAttempt];
+    let highestAnswer = 1;
+    answers && answers.length > 0 && answers.forEach((m, i) => {
+      if (m.userAnswer && i+1 > highestAnswer) highestAnswer = i+1;
+    })
+    let newDotColors = [''];
+    answers && answers.length > 0 && answers.forEach((m, i) => {
+      if (newDotColors.length === paramCurrentQuestion) {
+        newDotColors[newDotColors.length] = 'black';
+      } else if (answers[i].userAnswer && answers[i].userAnswer.length > 0) {
+        newDotColors[newDotColors.length] = 'blue';
+      } else if (!answers[i].userAnswer && (newDotColors.length < highestAnswer || newDotColors.length < paramCurrentQuestion)) {
+        newDotColors[newDotColors.length] = 'orange';
+      } else {
+        newDotColors[newDotColors.length] = '';
+      }
+    })
+    setDotColors(newDotColors);
+  }
+
+  console.log('currentQuestion == data.questions.length', currentQuestion + ' - ' + data.questions.length)
+
   return (
     <div className="App">
       <header className="App-header">
-        <div style={{display: 'flex', flexDirection: 'row'}}>
-          <img src={antDot} alt="ant trail" />
-          <img src={antDot} alt="ant trail" style={{opacity: '0.3', marginLeft: '-1px'}}/>
-          <img src={antDot} alt="ant trail" style={{opacity: '0.3', marginLeft: '-1px'}} />
-          <img src={antDot} alt="ant trail" style={{opacity: '0.3', marginLeft: '-1px'}} />
-          <img src={antDot} alt="ant trail" style={{opacity: '0.3', marginLeft: '-1px'}} />
-          <img src={antDot} alt="ant trail" style={{opacity: '0.3', marginLeft: '-1px'}} />
-          <img src={antDot} alt="ant trail" style={{opacity: '0.3', marginLeft: '-1px'}} />
-          <img src={antDot} alt="ant trail" style={{opacity: '0.3', marginLeft: '-1px'}} />
-        </div>
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
+        <title>The Quiz</title>
+        <h2>The Quiz</h2>
+        <AntTrail current={currentQuestion} totalCount={data.questions.length} dotColors={dotColors} onClick={sendToQuestion}/>
       </header>
+      <div className="row">
+        <div className="nav">
+          <div>
+            <div className="headerItem">Quiz Score</div>
+            <div> Attempts: {(attempts && attempts.length) || 0}</div>
+            {attempts && attempts.length > 0 && attempts.map((m, i) =>
+              <div key={i}>attempt {i+1}</div>
+            )}
+          </div>
+          {attemptFinished &&
+            <button onClick={() => setNewAttempt()} className="quizButton">Take the Quiz</button>
+          }
+        </div>
+        {!attemptFinished &&
+          <div style={{marginLeft: '350px', marginTop: '20px'}}>
+            <Question question={data && data.questions[currentQuestion-1]} moveQuestion={moveQuestion}
+                      isLastAnswer={currentQuestion === data.questions.length} setAttemptFinished={() => setAttemptFinished(true)}/>
+          </div>
+        }
+      </div>
     </div>
   );
 }

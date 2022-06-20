@@ -1,0 +1,56 @@
+
+.questionText, .questionId {
+	font-size: 18px;
+	font-family: Arial;
+	margin-left: 10px;
+	font-weight: bold;
+	text-align: left;
+}
+
+.questionText {
+	margin-left: 60px;
+}
+
+.questionId {
+	color: gray;
+}
+
+.row {
+	display: flex;
+	flex-direction: row;
+}
+
+.buttonRow {
+	display: flex;
+	flex-direction: row;
+	justify-content: start;
+	margin-top: 25px;
+}
+
+.space {
+	padding-top: 20px;
+}
+
+.answerText {
+	text-align: left;
+	font-size: 14px;
+	font-family: Arial;
+	margin-left: 60px;
+}
+
+.button {
+	color: white;
+	background-color: #5279ea;
+	border: none;
+	border-radius: 4px;
+	padding: 2px 8px 2px 8px;
+	margin-right: 5px;
+}
+
+.button:hover {
+	font-weight: bold;
+}
+
+.fixedHeight {
+	height: 250px;
+}
