@@ -28,29 +28,35 @@ function App() {
     setCurrentQuestion(1);
   }
 
-  const sendToQuestion = () => {}
+  useEffect(() => {
+    getDotColors(attempts, currentQuestion);
+  },[currentQuestion]);
 
   const moveQuestion = (move) => {
     if (move === 'prev') {
       setCurrentQuestion(currentQuestion-1);
-      if (currentQuestion <= 1) {
-        setCurrentQuestion(1);
-        getDotColors(attempts, 1);
-      } else {
-        getDotColors(attempts, currentQuestion - 1);
-      }
+      if (currentQuestion <= 1) setCurrentQuestion(1);
     } else if (move === 'next') {
       setCurrentQuestion(currentQuestion+1);
-      if (currentQuestion >= data.questions.length) {
-        setCurrentQuestion(data.questions.length);
-        getDotColors(attempts, data.questions.length);
-      } else {
-        getDotColors(attempts, currentQuestion + 1);
-      }
+      if (currentQuestion >= data.questions.length) setCurrentQuestion(data.questions.length);
+    } else if (!isNaN(move)) {
+      setCurrentQuestion(move);
     }
   }
 
-  const onAnswer = (questionId, answer) => {}
+  const onAnswer = (questionId, answer) => {
+    let updatedAttempts = Object.assign([], attempts);
+    let answers = updatedAttempts[updatedAttempts.length-1];
+    let newAnswers = answers && answers.length > 0 && answers.map((m) => {
+      if (m.questionId === questionId) {
+        m.userAnswer = answer;
+      }
+      return m;
+    })
+    updatedAttempts[updatedAttempts.length-1] = answers;
+    setAttempts(updatedAttempts);
+    getDotColors(updatedAttempts, currentQuestion);
+  }
 
   const getDotColors = (paramAttempts, paramCurrentQuestion) => {
     //1. set the currentQuestion to black
@@ -79,14 +85,17 @@ function App() {
     setDotColors(newDotColors);
   }
 
-  console.log('currentQuestion == data.questions.length', currentQuestion + ' - ' + data.questions.length)
-
   return (
     <div className="App">
       <header className="App-header">
         <title>The Quiz</title>
         <h2>The Quiz</h2>
-        <AntTrail current={currentQuestion} totalCount={data.questions.length} dotColors={dotColors} onClick={sendToQuestion}/>
+        {!attemptFinished &&
+          <div className="antTrail">
+            <AntTrail current={currentQuestion} totalCount={data.questions.length} dotColors={dotColors}
+                      moveQuestion={moveQuestion}/>
+          </div>
+        }
       </header>
       <div className="row">
         <div className="nav">
@@ -103,7 +112,8 @@ function App() {
         </div>
         {!attemptFinished &&
           <div style={{marginLeft: '350px', marginTop: '20px'}}>
-            <Question question={data && data.questions[currentQuestion-1]} moveQuestion={moveQuestion}
+            <Question question={data && data.questions[currentQuestion-1]} moveQuestion={moveQuestion} onAnswer={onAnswer}
+                      answer={attempts[attempts.length-1].filter(m => m.questionId === data.questions[currentQuestion-1].questionId)[0].userAnswer || ''}
                       isLastAnswer={currentQuestion === data.questions.length} setAttemptFinished={() => setAttemptFinished(true)}/>
           </div>
         }

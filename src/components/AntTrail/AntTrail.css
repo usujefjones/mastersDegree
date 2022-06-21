@@ -23,3 +23,22 @@
 	flex-direction: row;
 }
 
+.absolutePosition {
+	position: absolute;
+}
+
+.showNumber {
+	position: relative;
+	top: -10px;
+	font-size: 14px;
+	visibility: visible;
+}
+
+.hideNumber {
+	visibility: hidden;
+}
+
+.imageWidth {
+	width: 15px;
+	cursor: pointer;
+}

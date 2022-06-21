@@ -4,8 +4,7 @@ import lilypad from '../../assets/questions/lilypad.png';
 import parkingspace from '../../assets/questions/parkingspace.png';
 import triangles from '../../assets/questions/triangles.png';
 
-const Question = ({question={}, answer={}, onAnswer=()=>{}, moveQuestion=()=>{}, isLastAnswer=false, setAttemptFinished=()=>{}}) => {
-  console.log('isLastAnswer', isLastAnswer)
+const Question = ({question={}, answer='', onAnswer=()=>{}, moveQuestion=()=>{}, isLastAnswer=false, setAttemptFinished=()=>{}}) => {
   return (
       <div>
         <div className="fixedHeight">
@@ -21,13 +20,13 @@ const Question = ({question={}, answer={}, onAnswer=()=>{}, moveQuestion=()=>{},
           <div className="space">
             {question.answerType === 'EDIT_CONTROL' &&
               <div className="answerText">
-                <input value={answer.userAnswer} onKeyPress={(event) => onAnswer(question.questionId, event.target.value)} size={10}/>
+                <input key={question.questionId} defaultValue={answer} onKeyUp={(event) => onAnswer(question.questionId, event.target.value)} size={10}/>
               </div>
             }
             {question.answerType === 'TRUE_FALSE' &&
               <div>
-                <input type={'radio'} name={'answer'} value={true}/>True
-                <input type={'radio'} name={'answer'} value={false}/>False
+                <input type={'radio'} name={'answer'} value={'true'} onChange={(event) => onAnswer(question.questionId, event.target.value)} checked={answer === 'true'}/>True
+                <input type={'radio'} name={'answer'} value={'false'} onChange={(event) => onAnswer(question.questionId, event.target.value)} checked={answer === 'false'}/>False
               </div>
             }
             {question.answerType === 'SINGLE_MULT_CHOICE' &&
@@ -35,7 +34,7 @@ const Question = ({question={}, answer={}, onAnswer=()=>{}, moveQuestion=()=>{},
                 Multiple choice:
                 {question.multipleChoiceAnswers && question.multipleChoiceAnswers.length > 0 && question.multipleChoiceAnswers.map((m, i) =>
                   <div key={i}>
-                    <input type={'radio'} name={'mult'} value={m}/>{m}
+                    <input type={'radio'} name={'mult'} value={m} onChange={(event) => onAnswer(question.questionId, event.target.value)} checked={answer === m}/>{m}
                   </div>
                 )}
               </div>

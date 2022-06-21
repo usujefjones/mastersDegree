@@ -43,7 +43,7 @@ export const questions = [
 		questionId: 6,
 		questionText: '6.\tIn a lake, there is a patch of lily pads. Every day, the patch doubles in size. If it takes 48 days for the patch to cover the entire lake, how long would it take for the patch to cover half of the lake?',
 		imageSrc: 'lilypad',
-		answerType: 'SLIDER',
+		answerType: 'EDIT_CONTROL',
 		multipleChoiceAnswers: [''],
 		answer: '47',
 		explanation: 'With all the talk of doubling and halves, your brain jumps to the conclusion that to solve the problem of when the lily patch covers half the lake, all you have to do is divide the number of days it took to fill the lake (48) in half. It\'s understandable but wrong.\n' +
