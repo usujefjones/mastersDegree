@@ -65,3 +65,16 @@
 .antTrail {
   height: 75px;
 }
+
+.topSpace {
+  margin-bottom: 15px;
+}
+
+.divLink {
+  cursor: pointer;
+  color: yellow;
+}
+
+.divLink:hover {
+  font-weight: bold;
+}

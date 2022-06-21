@@ -3,6 +3,8 @@ import './AntTrail.css';
 import antDot from '../../assets/antDot.png';
 import antDot_black from '../../assets/antDot_black.png';
 import antDot_orange from '../../assets/antDot_orange.png';
+import antDot_green from '../../assets/antDot_green.png';
+import antDot_red from '../../assets/antDot_red.png';
 
 const AntTrail = ({current=1, id, totalCount, dotColors=[], moveQuestion=()=>{}}) => {
   let complete = dotColors && dotColors.length > 0 && dotColors.reduce((acc, m) => acc += m === 'blue' ? 1 : 0, 0);
@@ -24,7 +26,11 @@ const AntTrail = ({current=1, id, totalCount, dotColors=[], moveQuestion=()=>{}}
                         ? antDot_black
                         : dotColors[i + 1] === 'orange'
                           ? antDot_orange
-                          : antDot}
+                          : dotColors[i + 1] === 'green'
+                            ? antDot_green
+                            : dotColors[i + 1] === 'red'
+                              ? antDot_red
+                              : antDot}
                     key={i} alt="ant trail"
                     style={{marginLeft: '-1px', opacity: i + 1 <= current ? '1' : '0.3'}} />
               }

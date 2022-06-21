@@ -4,12 +4,12 @@ import lilypad from '../../assets/questions/lilypad.png';
 import parkingspace from '../../assets/questions/parkingspace.png';
 import triangles from '../../assets/questions/triangles.png';
 
-const Question = ({question={}, answer='', onAnswer=()=>{}, moveQuestion=()=>{}, isLastAnswer=false, setAttemptFinished=()=>{}}) => {
+const Question = ({question={}, answer='', onAnswer=()=>{}, moveQuestion=()=>{}, isLastAnswer=false, setAttemptFinished=()=>{}, currentReview}) => {
   return (
       <div>
         <div className="fixedHeight">
           <div className="questionId">#{question.questionId})</div>
-          <div className="questionText">{question.questionText}</div>
+          <div className="questionText" dangerouslySetInnerHTML={{__html: question.questionText}}></div>
           {question.imageSrc && <img src={question.imageSrc === 'lilypad'
                                             ? lilypad
                                             : question.imageSrc === 'parkingspace'
@@ -26,7 +26,7 @@ const Question = ({question={}, answer='', onAnswer=()=>{}, moveQuestion=()=>{},
             {question.answerType === 'TRUE_FALSE' &&
               <div>
                 <input type={'radio'} name={'answer'} value={'true'} onChange={(event) => onAnswer(question.questionId, event.target.value)} checked={answer === 'true'}/>True
-                <input type={'radio'} name={'answer'} value={'false'} onChange={(event) => onAnswer(question.questionId, event.target.value)} checked={answer === 'false'}/>False
+                <input type={'radio'} name={'answer'} value={'false'} onChange={(event) => onAnswer(question.questionId, event.target.value)} checked={answer === 'false'} className="leftSpace"/>False
               </div>
             }
             {question.answerType === 'SINGLE_MULT_CHOICE' &&
@@ -44,8 +44,8 @@ const Question = ({question={}, answer='', onAnswer=()=>{}, moveQuestion=()=>{},
         <div className="buttonRow">
           <button onClick={() => moveQuestion('prev')} className="button" disabled={question.questionId === '1'}>&lt; Prev</button>
           <button onClick={() => moveQuestion('next')} className="button" disabled={question.questionId === '20'}>Next &gt;</button>
-          {isLastAnswer &&
-            <button onClick={() => setAttemptFinished('next')} className="button"
+          {isLastAnswer && !currentReview &&
+          <button onClick={() => setAttemptFinished('next')} className="button"
                     style={{marginLeft: '30px', backgroundColor: 'green'}}>Finish</button>
           }
         </div>

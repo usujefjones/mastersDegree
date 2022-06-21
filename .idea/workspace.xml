@@ -2,14 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="94682054-1999-458e-acab-19ff940a626f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/assets/antDog_red.psd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/antDot_green.ai" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/antDot_green.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/antDot_red.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/store.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/AntTrail/AntTrail.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AntTrail/AntTrail.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/AntTrail/AntTrail.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AntTrail/AntTrail.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Question/Question.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Question/Question.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Question/Question.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Question/Question.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/data/questions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/questions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/counter/Counter.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/counter/Counter.module.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/counter/counterAPI.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/counter/counterSlice.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/counter/counterSlice.spec.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/slices/answerSlice.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,7 +86,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1655584223459</updated>
-      <workItem from="1655584226149" duration="41065000" />
+      <workItem from="1655584226149" duration="47238000" />
     </task>
     <task id="LOCAL-00001" summary="Week 4">
       <created>1655765892767</created>
@@ -84,7 +95,14 @@
       <option name="project" value="LOCAL" />
       <updated>1655765892767</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Week 5">
+      <created>1655777875939</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1655777875939</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -104,6 +122,7 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Week 4" />
-    <option name="LAST_COMMIT_MESSAGE" value="Week 4" />
+    <MESSAGE value="Week 5" />
+    <option name="LAST_COMMIT_MESSAGE" value="Week 5" />
   </component>
 </project>

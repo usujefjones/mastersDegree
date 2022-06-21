@@ -25,7 +25,7 @@ export const questions = [
 	},
 	{
 		questionId: 4,
-		questionText: '140 / 5 * 2 – 2 = 54',
+		questionText: '140 &#247; 5 * 2 – 2 = 54',
 		imageSrc: '',
 		answerType: 'TRUE_FALSE',
 		multipleChoiceAnswers: [''],
@@ -33,7 +33,7 @@ export const questions = [
 	},
 	{
 		questionId: 5,
-		questionText: '4<super>3</super> -60 = ? ', //To do superscript
+		questionText: '4<sup>3</sup> - 60 = ? ', //To do superscript
 		imageSrc: '',
 		answerType: 'SINGLE_MULT_CHOICE',
 		multipleChoiceAnswers: ['4', '5', '60', '6'],
@@ -59,7 +59,7 @@ export const questions = [
 	},
 	{
 		questionId: 8,
-		questionText: 'Which number is equivalent to 3<super>4</super> / 3<super>2</super>?',
+		questionText: 'Which number is equivalent to 3<sup>4</sup> &#247; 3<sup>2</sup>?',
 		imageSrc: '',
 		answerType: 'SINGLE_MULT_CHOICE',
 		multipleChoiceAnswers: ['2','9','81','729'],
@@ -67,7 +67,7 @@ export const questions = [
 	},
 	{
 		questionId: 9,
-		questionText: '9 - 3 / 1/3 + 1 = ?',
+		questionText: '9 - 3 &#247; 1/3 + 1 = ?',
 		imageSrc: '',
 		answerType: 'EDIT_CONTROL',
 		multipleChoiceAnswers: [''],
@@ -83,7 +83,7 @@ export const questions = [
 	},
 	{
 		questionId: 11,
-		questionText: 'Solve for x:  115 + (-5x) = 0',
+		questionText: 'Solve for x:</br></br>  115 + (-5x) = 0',
 		imageSrc: '',
 		answerType: 'SINGLE_MULT_CHOICE',
 		multipleChoiceAnswers: ['3', '4', '-0', '-3'],
@@ -91,7 +91,7 @@ export const questions = [
 	},
 	{
 		questionId: 12,
-		questionText: '1.92 / 3 = ?',
+		questionText: '1.92 &#247; 3 = ?',
 		imageSrc: '',
 		answerType: 'SINGLE_MULT_CHOICE',
 		multipleChoiceAnswers: ['6.4', '4.6', '1.89', '0.64'],
@@ -99,7 +99,7 @@ export const questions = [
 	},
 	{
 		questionId: 13,
-		questionText: '6 / 2(1 + 2) = ?',
+		questionText: '6 &#247; 2(1 + 2) = ?',
 		imageSrc: '',
 		answerType: 'EDIT_CONTROL',
 		multipleChoiceAnswers: [''],
@@ -133,7 +133,7 @@ export const questions = [
 	},
 	{
 		questionId: 17,
-		questionText: 'Solve for x:  6 x + 4 = 40',
+		questionText: 'Solve for x:</br></br>  6 x + 4 = 40',
 		imageSrc: '',
 		answerType: 'SINGLE_MULT_CHOICE',
 		multipleChoiceAnswers: ['6', '0.6', '-6', '10'],
@@ -141,7 +141,7 @@ export const questions = [
 	},
 	{
 		questionId: 18,
-		questionText: 'Solve for x:  x + (x + 5) = 29',
+		questionText: 'Solve for x:</br></br>  x + (x + 5) = 29',
 		imageSrc: '',
 		answerType: 'EDIT_CONTROL',
 		multipleChoiceAnswers: [''],
@@ -149,7 +149,7 @@ export const questions = [
 	},
 	{
 		questionId: 19,
-		questionText: 'Solve for x:  3x + 1 = 43',
+		questionText: 'Solve for x:</br></br>  3x + 1 = 43',
 		imageSrc: '',
 		answerType: 'TRUE_FALSE',
 		multipleChoiceAnswers: [''],
@@ -157,7 +157,7 @@ export const questions = [
 	},
 	{
 		questionId: 20,
-		questionText: '5x + 4x – 10 =  71',
+		questionText: 'Solve for x:</br></br> 5x + 4x – 10 =  71',
 		imageSrc: '',
 		answerType: 'EDIT_CONTROL',
 		multipleChoiceAnswers: [''],

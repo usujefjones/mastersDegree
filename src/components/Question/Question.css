@@ -55,3 +55,8 @@
 .fixedHeight {
 	height: 250px;
 }
+
+
+.leftSpace {
+	margin-left: 10px;
+}
