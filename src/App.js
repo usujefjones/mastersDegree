@@ -29,6 +29,11 @@ function App() {
     setCurrentReview(null);
   }
 
+  const setNewReview = (number) => {
+    setCurrentQuestion(1);
+    setCurrentReview(number);
+  }
+
   useEffect(() => {
     getDotColors();
   },[currentQuestion, attempts, currentReview, attemptFinished]);
@@ -120,7 +125,7 @@ function App() {
             <div className="headerItem">Quiz Score</div>
             <div className="topSpace"> Attempts: {(attempts && attempts.length) || 0}</div>
             {attemptFinished && attempts && attempts.length > 0 && attempts.map((m, i) =>
-              <div key={i} onClick={() => setCurrentReview(i+1)} className="divLink">
+              <div key={i} onClick={() => setNewReview(i+1)} className="divLink">
                 attempt #{i+1}: <strong>{getQuizScore(i)}</strong>
               </div>
             )}

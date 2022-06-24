@@ -30,14 +30,14 @@ const Question = ({question={}, answer='', onAnswer=()=>{}, moveQuestion=()=>{},
                    </div>
                 : question.answer === answer || (!answer || answer === '')
                   ? <div className="rowImage">
-                      <img src={greenArrow} alt={'correct'}/>{question.answer}
+                      <img src={greenArrow} alt={'correct'} className="reviewImage"/>{question.answer}
                     </div>
                   : <div>
                       <div className="rowImage">
-                        <img src={greenArrow} alt={'correct'}/>{question.answer}
+                        <img src={greenArrow} alt={'correct'} className="reviewImage"/>{question.answer}
                       </div>
                       <div className="rowImage">
-                        <img src={wrongPointer} alt={'wrong'}/>{answer}
+                        <img src={wrongPointer} alt={'wrong'} className="reviewImage"/>{answer}
                       </div>
                     </div>
               : ''
@@ -53,18 +53,18 @@ const Question = ({question={}, answer='', onAnswer=()=>{}, moveQuestion=()=>{},
                   <div>
                     <div className="row">
                       {question.answer === 'true'
-                        ? <img src={greenArrow} alt={'correct'}/>
+                        ? <img src={greenArrow} alt={'correct'} className="reviewImage"/>
                         : answer.userAnswer === 'true'
-                          ? <img src={wrongPointer} alt={'wrong'}/>
+                          ? <img src={wrongPointer} alt={'wrong'} className="reviewImage"/>
                           : ''
                       }
                       <div className="answer">True</div>
                     </div>
                     <div className="row">
                       {question.answer === 'false'
-                        ? <img src={greenArrow} alt={'correct'}/>
+                        ? <img src={greenArrow} alt={'correct'} className="reviewImage"/>
                         : answer.userAnswer === 'false'
-                          ? <img src={wrongPointer} alt={'wrong'}/>
+                          ? <img src={wrongPointer} alt={'wrong'} className="reviewImage"/>
                           : ''
                       }
                       <div className="answerSpace" >False</div>
@@ -88,11 +88,11 @@ const Question = ({question={}, answer='', onAnswer=()=>{}, moveQuestion=()=>{},
                       <div key={i}>
                         {question.answer === m
                           ? <div className="rowImage">
-                              <img src={greenArrow} alt={'correct'}/>{m}
+                              <img src={greenArrow} alt={'correct'} className="reviewImage"/>{m}
                             </div>
                           : answer === m
                             ? <div className="rowImage">
-                                <img src={wrongPointer} alt={'wrong'}/>{m}
+                                <img src={wrongPointer} alt={'wrong'} className="reviewImage"/>{m}
                               </div>
                             : <div className='answerSpace'>{m}</div>
                         }
