@@ -151,7 +151,7 @@ export const questions = [
 		questionId: 19,
 		questionText: 'Solve for x:</br></br>  3x + 1 = 43',
 		imageSrc: '',
-		answerType: 'TRUE_FALSE',
+		answerType: 'EDIT_CONTROL',
 		multipleChoiceAnswers: [''],
 		answer: '14'
 	},

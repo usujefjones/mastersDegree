@@ -15,9 +15,13 @@
 	color: gray;
 }
 
-.row {
+.row, .rowImage {
 	display: flex;
 	flex-direction: row;
+}
+
+.rowImage {
+	height: 28px;
 }
 
 .buttonRow {
@@ -59,4 +63,16 @@
 
 .leftSpace {
 	margin-left: 10px;
+}
+
+.noAnswer {
+	color: red;
+	font-size: 16px;
+	font-weight: bold;
+	margin-bottom: 15px;
+}
+
+.answerSpace {
+	margin-left: 100px;
+	height: 28px;
 }

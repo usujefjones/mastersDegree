@@ -3,6 +3,8 @@ import './Question.css';
 import lilypad from '../../assets/questions/lilypad.png';
 import parkingspace from '../../assets/questions/parkingspace.png';
 import triangles from '../../assets/questions/triangles.png';
+import greenArrow from '../../assets/GreenArrow.png';
+import wrongPointer from '../../assets/WrongPointer.png';
 
 const Question = ({question={}, answer='', onAnswer=()=>{}, moveQuestion=()=>{}, isLastAnswer=false, setAttemptFinished=()=>{}, currentReview}) => {
   return (
@@ -18,26 +20,86 @@ const Question = ({question={}, answer='', onAnswer=()=>{}, moveQuestion=()=>{},
                                                   ? triangles
                                                   : ''} alt="question image" width={'200px'}/>}
           <div className="space">
-            {question.answerType === 'EDIT_CONTROL' &&
-              <div className="answerText">
-                <input key={question.questionId} defaultValue={answer} onKeyUp={(event) => onAnswer(question.questionId, event.target.value)} size={10}/>
-              </div>
+            {currentReview && (answer === '' || !answer) &&
+              <div className="noAnswer">Wrong: No Answer</div>
             }
-            {question.answerType === 'TRUE_FALSE' &&
-              <div>
-                <input type={'radio'} name={'answer'} value={'true'} onChange={(event) => onAnswer(question.questionId, event.target.value)} checked={answer === 'true'}/>True
-                <input type={'radio'} name={'answer'} value={'false'} onChange={(event) => onAnswer(question.questionId, event.target.value)} checked={answer === 'false'} className="leftSpace"/>False
-              </div>
+            {question.answerType === 'EDIT_CONTROL'
+              ? !currentReview
+                ?  <div className="answerText">
+                     <input key={question.questionId} defaultValue={answer} onKeyUp={(event) => onAnswer(question.questionId, event.target.value)} size={10}/>
+                   </div>
+                : question.answer === answer || (!answer || answer === '')
+                  ? <div className="rowImage">
+                      <img src={greenArrow} alt={'correct'}/>{question.answer}
+                    </div>
+                  : <div>
+                      <div className="rowImage">
+                        <img src={greenArrow} alt={'correct'}/>{question.answer}
+                      </div>
+                      <div className="rowImage">
+                        <img src={wrongPointer} alt={'wrong'}/>{answer}
+                      </div>
+                    </div>
+              : ''
             }
-            {question.answerType === 'SINGLE_MULT_CHOICE' &&
-              <div className="answerText">
-                Multiple choice:
-                {question.multipleChoiceAnswers && question.multipleChoiceAnswers.length > 0 && question.multipleChoiceAnswers.map((m, i) =>
-                  <div key={i}>
-                    <input type={'radio'} name={'mult'} value={m} onChange={(event) => onAnswer(question.questionId, event.target.value)} checked={answer === m}/>{m}
+            {question.answerType === 'TRUE_FALSE'
+              ? !currentReview
+                ?
+                  <div>
+                    <input type={'radio'} name={'answer'} value={'true'} onChange={(event) => onAnswer(question.questionId, event.target.value)} checked={answer === 'true'}/>True
+                    <input type={'radio'} name={'answer'} value={'false'} onChange={(event) => onAnswer(question.questionId, event.target.value)} checked={answer === 'false'} className="leftSpace"/>False
                   </div>
-                )}
-              </div>
+                :
+                  <div>
+                    <div className="row">
+                      {question.answer === 'true'
+                        ? <img src={greenArrow} alt={'correct'}/>
+                        : answer.userAnswer === 'true'
+                          ? <img src={wrongPointer} alt={'wrong'}/>
+                          : ''
+                      }
+                      <div className="answer">True</div>
+                    </div>
+                    <div className="row">
+                      {question.answer === 'false'
+                        ? <img src={greenArrow} alt={'correct'}/>
+                        : answer.userAnswer === 'false'
+                          ? <img src={wrongPointer} alt={'wrong'}/>
+                          : ''
+                      }
+                      <div className="answerSpace" >False</div>
+                    </div>
+                  </div>
+              : ''
+            }
+            {question.answerType === 'SINGLE_MULT_CHOICE'
+              ? !currentReview
+                ? <div className="answerText">
+                    Multiple choice:
+                    {question.multipleChoiceAnswers && question.multipleChoiceAnswers.length > 0 && question.multipleChoiceAnswers.map((m, i) =>
+                      <div key={i}>
+                        <input type={'radio'} name={'mult'} value={m} onChange={(event) => onAnswer(question.questionId, event.target.value)} checked={answer === m}/>{m}
+                      </div>
+                    )}
+                  </div>
+                : <div className="answerText">
+                    Multiple choice:
+                    {question.multipleChoiceAnswers && question.multipleChoiceAnswers.length > 0 && question.multipleChoiceAnswers.map((m, i) =>
+                      <div key={i}>
+                        {question.answer === m
+                          ? <div className="rowImage">
+                              <img src={greenArrow} alt={'correct'}/>{m}
+                            </div>
+                          : answer === m
+                            ? <div className="rowImage">
+                                <img src={wrongPointer} alt={'wrong'}/>{m}
+                              </div>
+                            : <div className='answerSpace'>{m}</div>
+                        }
+                      </div>
+                    )}
+                  </div>
+              : ''
             }
           </div>
         </div>
