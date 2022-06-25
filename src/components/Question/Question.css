@@ -9,7 +9,9 @@
 
 .questionText {
 	margin-left: 60px;
-	width: 600px;
+	margin-right: 5px;
+	width: 80%;
+	max-width: 500px;
 }
 
 .questionId {
@@ -30,11 +32,12 @@
 	flex-direction: row;
 	justify-content: start;
 	margin-top: 25px;
+	margin-left: 25px;
 }
 
 .space {
 	padding-top: 20px;
-	margin-left: 80px;
+	margin-left: 100px;
 }
 
 .answerText {
@@ -58,7 +61,7 @@
 }
 
 .fixedHeight {
-	height: 250px;
+	height: 350px;
 }
 
 
@@ -84,7 +87,9 @@
 
 .explanation {
 	margin-top: 15px;
-	max-width: 600px;
+	margin-right: 5px;
+	width: 80%;
+	max-width: 500px;
 	display: flex;
 	flex-direction: row;
 }

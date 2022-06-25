@@ -104,8 +104,8 @@ const Question = ({question={}, answer='', onAnswer=()=>{}, moveQuestion=()=>{},
           </div>
         </div>
         <div className="buttonRow">
-          <button onClick={() => moveQuestion('prev')} className="button" disabled={question.questionId === '1'}>&lt; Prev</button>
-          <button onClick={() => moveQuestion('next')} className="button" disabled={question.questionId === '20'}>Next &gt;</button>
+          <button onClick={() => moveQuestion('prev')} className="button">&lt; Prev</button>
+          <button onClick={() => moveQuestion('next')} className="button">Next &gt;</button>
           {isLastAnswer && !currentReview &&
           <button onClick={() => setAttemptFinished('next')} className="button"
                     style={{marginLeft: '30px', backgroundColor: 'green'}}>Finish</button>

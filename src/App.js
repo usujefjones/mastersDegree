@@ -3,6 +3,7 @@ import AntTrail from './components/AntTrail';
 import Question from './components/Question';
 import './App.css';
 import * as data from './data/questions.js';
+import MediaQuery, { useMediaQuery } from 'react-responsive'
 
 function App() {
   const [currentQuestion, setCurrentQuestion] = useState(1);
@@ -10,6 +11,9 @@ function App() {
   const [attempts, setAttempts] = useState([]);
   const [attemptFinished, setAttemptFinished] = useState(true);
   const [currentReview, setCurrentReview] = useState(null);
+
+  const isMobile = useMediaQuery({ query: '(max-width: 424px)' })
+  const isNotMobile = useMediaQuery({ query: '(min-width: 425px)' })
 
   const setNewAttempt = () => {
     let newAnswers = [];
@@ -108,19 +112,8 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
-        <title>The Quiz</title>
-        <h2>The Quiz</h2>
-        {(!attemptFinished || currentReview) ?
-          <div className="antTrail">
-            <AntTrail current={currentQuestion} totalCount={data.questions.length} dotColors={dotColors}
-                      moveQuestion={moveQuestion}/>
-          </div>
-          : null
-        }
-      </header>
-      <div className="row">
-        <div className="nav">
+      <div className={isNotMobile ? "row" : "column"}>
+        <div className={isNotMobile ? "nav" : "navMobile"}>
           <div>
             <div className="headerItem">Quiz Score</div>
             <div className="topSpace"> Attempts: {(attempts && attempts.length) || 0}</div>
@@ -134,23 +127,36 @@ function App() {
             <button onClick={() => setNewAttempt()} className="quizButton">Take the Quiz</button>
           }
         </div>
-        {(!attemptFinished || currentReview)
-          ? <div style={{marginLeft: '350px', marginTop: '20px'}}>
-              <Question question={data && data.questions[currentQuestion-1]} moveQuestion={moveQuestion} onAnswer={onAnswer} currentReview={currentReview}
-                        answer={attempts[attempts.length-1].filter(m => m.questionId === data.questions[currentQuestion-1].questionId)[0].userAnswer || ''}
-                        isLastAnswer={currentQuestion === data.questions.length} setAttemptFinished={() => setAttemptFinished(true)}/>
-            </div>
-          : <div style={{marginLeft: '350px', marginTop: '20px'}} className="bigText">
-              {attempts && attempts.length
-                ? `Do you want to take the quiz again?`
-                : `Are you ready to start the quiz?`}
-              <button onClick={() => setNewAttempt()} className="quizButton">Take the Quiz</button>
-              {attempts && attempts.length
-                ? <div className="attemptInstruct">Click on an attempt on the left to see the corrected answers</div>
-                : ''
-              }
-            </div>
-        }
+        <div>
+          <div className="App-header">
+            <title>The Quiz</title>
+            <h2>The Quiz</h2>
+            {(!attemptFinished || currentReview) ?
+              <div className="antTrail">
+                <AntTrail current={currentQuestion} totalCount={data.questions.length} dotColors={dotColors}
+                          moveQuestion={moveQuestion}/>
+              </div>
+              : null
+            }
+          </div>
+          {(!attemptFinished || currentReview)
+            ? <div className={isNotMobile ? "leftSpace" : "lessLeftSpace"}>
+                <Question question={data && data.questions[currentQuestion-1]} moveQuestion={moveQuestion} onAnswer={onAnswer} currentReview={currentReview}
+                          answer={attempts[attempts.length-1].filter(m => m.questionId === data.questions[currentQuestion-1].questionId)[0].userAnswer || ''}
+                          isLastAnswer={currentQuestion === data.questions.length} setAttemptFinished={() => setAttemptFinished(true)}/>
+              </div>
+            : <div className={isNotMobile ? "leftSpace" : "lessLeftSpace"}>
+                {attempts && attempts.length
+                  ? `Do you want to take the quiz again?`
+                  : `Are you ready to start the quiz?`}
+                <button onClick={() => setNewAttempt()} className="quizButton">Take the Quiz</button>
+                {attempts && attempts.length
+                  ? <div className="attemptInstruct">Click on an attempt on the left to see the corrected answers</div>
+                  : ''
+                }
+              </div>
+          }
+        </div>
       </div>
     </div>
   );
