@@ -78,3 +78,7 @@
 .divLink:hover {
   font-weight: bold;
 }
+
+.bigText {
+  font-size: 24px;
+}

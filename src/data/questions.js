@@ -113,7 +113,7 @@ export const questions = [
 		answerType: 'EDIT_CONTROL',
 		multipleChoiceAnswers: [''],
 		answer: '36',
-		explanation: 'Squares of numbers: 2pwr2 = 4, 3pwr2 = 9, 4pwr2 = 16, 5pwr2 = 5, 6pwr2 = 36'
+		explanation: 'Squares of numbers: 2<sup>2</sup> = 4,&nbsp;&nbsp; 3<sup>2</sup> = 9,&nbsp;&nbsp; 4<sup>2</sup> = 16,&nbsp;&nbsp; 5<sup>2</sup> = 5,&nbsp;&nbsp; 6<sup>2</sup> = 36'
 	},
 	{
 		questionId: 15,

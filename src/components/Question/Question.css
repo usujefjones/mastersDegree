@@ -9,6 +9,7 @@
 
 .questionText {
 	margin-left: 60px;
+	width: 600px;
 }
 
 .questionId {
@@ -79,4 +80,17 @@
 
 .reviewImage {
 	width: 100px;
+}
+
+.explanation {
+	margin-top: 15px;
+	max-width: 600px;
+	display: flex;
+	flex-direction: row;
+}
+
+.attemptInstruct {
+	text-align: left;
+	font-size: 14px;
+	font-family: Arial;
 }

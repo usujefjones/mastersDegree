@@ -134,12 +134,22 @@ function App() {
             <button onClick={() => setNewAttempt()} className="quizButton">Take the Quiz</button>
           }
         </div>
-        {(!attemptFinished || currentReview) &&
-          <div style={{marginLeft: '350px', marginTop: '20px'}}>
-            <Question question={data && data.questions[currentQuestion-1]} moveQuestion={moveQuestion} onAnswer={onAnswer} currentReview={currentReview}
-                      answer={attempts[attempts.length-1].filter(m => m.questionId === data.questions[currentQuestion-1].questionId)[0].userAnswer || ''}
-                      isLastAnswer={currentQuestion === data.questions.length} setAttemptFinished={() => setAttemptFinished(true)}/>
-          </div>
+        {(!attemptFinished || currentReview)
+          ? <div style={{marginLeft: '350px', marginTop: '20px'}}>
+              <Question question={data && data.questions[currentQuestion-1]} moveQuestion={moveQuestion} onAnswer={onAnswer} currentReview={currentReview}
+                        answer={attempts[attempts.length-1].filter(m => m.questionId === data.questions[currentQuestion-1].questionId)[0].userAnswer || ''}
+                        isLastAnswer={currentQuestion === data.questions.length} setAttemptFinished={() => setAttemptFinished(true)}/>
+            </div>
+          : <div style={{marginLeft: '350px', marginTop: '20px'}} className="bigText">
+              {attempts && attempts.length
+                ? `Do you want to take the quiz again?`
+                : `Are you ready to start the quiz?`}
+              <button onClick={() => setNewAttempt()} className="quizButton">Take the Quiz</button>
+              {attempts && attempts.length
+                ? <div className="attemptInstruct">Click on an attempt on the left to see the corrected answers</div>
+                : ''
+              }
+            </div>
         }
       </div>
     </div>

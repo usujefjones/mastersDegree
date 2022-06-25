@@ -111,6 +111,12 @@ const Question = ({question={}, answer='', onAnswer=()=>{}, moveQuestion=()=>{},
                     style={{marginLeft: '30px', backgroundColor: 'green'}}>Finish</button>
           }
         </div>
+        {currentReview && question.explanation &&
+          <div className='explanation'>
+            <strong>Explanation:&nbsp;&nbsp;</strong>
+            <div dangerouslySetInnerHTML={{__html: question.explanation}}></div>
+          </div>
+        }
       </div>
   )
 };
