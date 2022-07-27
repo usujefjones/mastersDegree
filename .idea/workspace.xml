@@ -2,13 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="94682054-1999-458e-acab-19ff940a626f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Week 5 Status notes.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/OverlappingInsightLogo.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Question/Question.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Question/Question.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Question/Question.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Question/Question.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,7 +74,14 @@
       <updated>1655584223459</updated>
       <workItem from="1655584226149" duration="47928000" />
       <workItem from="1656043984505" duration="7309000" />
-      <workItem from="1656131381504" duration="6141000" />
+      <workItem from="1656131381504" duration="6449000" />
+      <workItem from="1656368771454" duration="640000" />
+      <workItem from="1656370436801" duration="654000" />
+      <workItem from="1656380162981" duration="250000" />
+      <workItem from="1656388079155" duration="2340000" />
+      <workItem from="1657399503129" duration="61000" />
+      <workItem from="1657405528446" duration="1280000" />
+      <workItem from="1658962953019" duration="539000" />
     </task>
     <task id="LOCAL-00001" summary="Week 4">
       <created>1655765892767</created>
@@ -120,7 +125,14 @@
       <option name="project" value="LOCAL" />
       <updated>1656165497883</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="After mobile friendly">
+      <created>1656172461194</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1656172461194</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -144,6 +156,7 @@
     <MESSAGE value="Week 5" />
     <MESSAGE value="Week 5 - done?" />
     <MESSAGE value="Before mobile friendly" />
-    <option name="LAST_COMMIT_MESSAGE" value="Before mobile friendly" />
+    <MESSAGE value="After mobile friendly" />
+    <option name="LAST_COMMIT_MESSAGE" value="After mobile friendly" />
   </component>
 </project>

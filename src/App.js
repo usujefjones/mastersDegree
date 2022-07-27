@@ -128,7 +128,7 @@ function App() {
           }
         </div>
         <div>
-          <div className="App-header">
+          <div className={isNotMobile ? "App-header-more-left" : "App-header"}>
             <title>The Quiz</title>
             <h2>The Quiz</h2>
             {(!attemptFinished || currentReview) ?

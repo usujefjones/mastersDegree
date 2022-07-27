@@ -1,0 +1,10 @@
+Week 5
+
+Show the answers back in their controls when you leave and come back.
+
+Hover over the dots on the status ant trail and show the number in a tool tip. Then click on that dot in order to jump to the given question. Make sure that the black dot follows the currently selected question.
+
+Provide the total score on the left after clicking on the "Finish" button.
+
+Show the given quiz attempt with the correct answers and the right answers. Use the same dot ant trail to show the red and green dots. Allow the user to click through them all.
+
