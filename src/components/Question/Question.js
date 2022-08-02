@@ -8,7 +8,7 @@ import wrongPointer from '../../assets/WrongPointer.png';
 
 const Question = ({question={}, answer='', onAnswer=()=>{}, moveQuestion=()=>{}, isLastAnswer=false, setAttemptFinished=()=>{}, currentReview}) => {
   return (
-      <div>
+      <div className="fixedWidth">
         <div className="fixedHeight">
           <div className="questionId">#{question.questionId})</div>
           <div className="questionText" dangerouslySetInnerHTML={{__html: question.questionText}}></div>
@@ -46,8 +46,21 @@ const Question = ({question={}, answer='', onAnswer=()=>{}, moveQuestion=()=>{},
               ? !currentReview
                 ?
                   <div>
-                    <input type={'radio'} name={'answer'} value={'true'} onChange={(event) => onAnswer(question.questionId, event.target.value)} checked={answer === 'true'}/>True
-                    <input type={'radio'} name={'answer'} value={'false'} onChange={(event) => onAnswer(question.questionId, event.target.value)} checked={answer === 'false'} className="leftSpace"/>False
+                    <input
+                      type={'radio'}
+                      name={'answer'}
+                      value={'true'}
+                      onChange={(event) => onAnswer(question.questionId, event.target.value)}
+                      checked={answer === 'true'}
+                      style={{maxWidth: '120px'}}/>
+                      <div style={{marginRight: '15px', display: 'inline'}}>True</div>
+                    <input
+                      type={'radio'}
+                      name={'answer'}
+                      value={'false'}
+                      onChange={(event) => onAnswer(question.questionId, event.target.value)}
+                      checked={answer === 'false'}
+                      style={{maxWidth: '120px'}}/>False
                   </div>
                 :
                   <div>

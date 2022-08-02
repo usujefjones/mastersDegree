@@ -1,25 +1,33 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
-  "icons": [
-    {
-      "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
-    },
-    {
-      "src": "logo192.png",
-      "type": "image/png",
-      "sizes": "192x192"
-    },
-    {
-      "src": "logo512.png",
-      "type": "image/png",
-      "sizes": "512x512"
-    }
-  ],
-  "start_url": ".",
+  "name": "The Quiz",
+  "short_name": "Quiz",
+  "start_url": "/",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "background_color": "#fff",
+  "description": "eCADEMY app of all things school",
+  "icons": [{
+    "src": "static/logos/homescreen48.png",
+    "sizes": "48x48",
+    "type": "image/png"
+  }, {
+    "src": "static/logos/homescreen72.png",
+    "sizes": "72x72",
+    "type": "image/png"
+  }, {
+    "src": "static/logos/homescreen96.png",
+    "sizes": "96x96",
+    "type": "image/png"
+  }, {
+    "src": "static/logos/homescreen144.png",
+    "sizes": "144x144",
+    "type": "image/png"
+  }, {
+    "src": "static/logos/homescreen168.png",
+    "sizes": "168x168",
+    "type": "image/png"
+  }, {
+    "src": "static/logos/homescreen192.png",
+    "sizes": "192x192",
+    "type": "image/png"
+  }]
 }

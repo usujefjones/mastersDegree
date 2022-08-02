@@ -88,11 +88,12 @@
 
 .topSpace {
   margin-bottom: 15px;
+  color: white;
 }
 
 .divLink {
   cursor: pointer;
-  color: yellow;
+  color: white;
   margin-bottom: 15px;
 }
 

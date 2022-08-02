@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="94682054-1999-458e-acab-19ff940a626f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Week 5 Status notes.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/OverlappingInsightLogo.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Question/Question.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Question/Question.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Question/Question.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Question/Question.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,7 +81,8 @@
       <workItem from="1656388079155" duration="2340000" />
       <workItem from="1657399503129" duration="61000" />
       <workItem from="1657405528446" duration="1280000" />
-      <workItem from="1658962953019" duration="539000" />
+      <workItem from="1658962953019" duration="1132000" />
+      <workItem from="1659453759990" duration="1274000" />
     </task>
     <task id="LOCAL-00001" summary="Week 4">
       <created>1655765892767</created>
